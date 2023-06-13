@@ -1,0 +1,114 @@
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  background: rgb(19 21 23);
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+#app {
+  margin: 0 auto;
+  display: flex;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.micro {
+  border: 1px solid white;
+  border-radius: 100%;
+  width: 154px;
+  user-select: none;
+  cursor: pointer;
+  padding: 10px;
+
+  color: white;
+
+  transition: background 0.2s linear;
+}
+
+.micro:hover {
+  background: rgb(33 35 41);
+}
+
+.icon {
+  font-size: 154px !important;
+  z-index: 100;
+  position: relative;
+}
+
+.hidden {
+  display: none;
+}
+
+.container {
+  position: relative;
+}
+
+.delay1 {
+  background: rgb(56 189 248);
+}
+
+.delay2 {
+  background: rgb(124 58 237);
+}
+
+.delay3 {
+  background: rgb(217 70 239);
+}
+
+.delay4 {
+  background-color: rgb(225 29 72);
+}
+
+.container.active .delay1 {
+  -webkit-animation: waves 2.5s linear;
+  animation: waves 2.5s linear infinite;
+  -webkit-animation-delay: 0.1s;
+  animation-delay: 0.1s;
+}
+.container.active.delay2 {
+  -webkit-animation: waves 2.5s linear 0.7s forwards;
+  animation: waves 2.5s linear 0.7s forwards infinite;
+}
+.container.active .delay3 {
+  -webkit-animation: waves 2.5s linear 1.3s forwards;
+  animation: waves 2.5s linear 1.3s forwards infinite;
+}
+.container.active .delay4 {
+  -webkit-animation: waves 2.5s linear 1.9s forwards;
+  animation: waves 2.5s linear 1.9s forwards infinite;
+}
+
+.circle {
+  display: block;
+  width: 177px;
+  height: 177px;
+  border-radius: 50%;
+  /* background: #0194c7; */
+  transition: 5s ease;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  opacity: 0;
+
+  /* transform: translate(-10%, -10%); */
+}
+
+@keyframes waves {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
