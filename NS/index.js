@@ -1,3 +1,13 @@
+const modal = document.querySelector('.modal')
+
+const observer = new MutationObserver((event) =>  {
+  if (event[0].attributeName == 'open') setTimeout(() => {
+    modal.close()
+  }, 5000)
+  });
+observer.observe(modal, { attributes: true })
+
+
 const audioIN = { audio: true };
 
 navigator.mediaDevices
@@ -48,10 +58,15 @@ navigator.mediaDevices
       const formData = new FormData();
       formData.append("file", audioData);
 
-      await fetch("http://127.0.0.1:5500/upload", {
+      const response = await fetch("http://127.0.0.1:5500/upload", {
         method: "POST",
         body: formData
-      });
+      }).then((res) => res.text())
+
+      console.log(modal, response);
+
+      modal.querySelector('.modal__inner').innerText = response;
+      modal.showModal()
     };
   })
   .catch(function (err) {
